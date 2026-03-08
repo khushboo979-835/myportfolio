@@ -1,0 +1,103 @@
+[
+    {
+        "id": "cab-booking",
+        "title": "Cab Booking System",
+        "year": "2025",
+        "tech": [
+            "MongoDB",
+            "Express",
+            "React",
+            "Node.js",
+            "Google Maps API",
+            "Razorpay"
+        ],
+        "image": "/images/projects/cab-booking-clean.png",
+        "description": "Engineered a scalable cab booking platform with real-time booking, dashboards, and an admin panel. Integrated Google Maps API for live tracking and Razorpay for secure payments.",
+        "live": "https://fastride-frontend.vercel.app/",
+        "source": "https://github.com/khushbooyadav23074/fastride-frontend",
+        "isStatic": true,
+        "stars": 5
+    },
+    {
+        "id": "spreadsheet-app",
+        "title": "Spreadsheet Web Application",
+        "year": "2025",
+        "tech": [
+            "React",
+            "TypeScript",
+            "Vercel"
+        ],
+        "image": "/images/projects/spreadsheet-clean.png",
+        "description": "Engineered an Excel-like web app with advanced filtering, sorting, and formula computations; optimized for high performance and deployed seamlessly on Vercel.",
+        "live": "https://my-spreadsheet-app.vercel.app/",
+        "source": "https://github.com/khushbooyadav23074/my-spreadsheet-app",
+        "isStatic": true,
+        "stars": 4
+    },
+    {
+        "id": "add-to-cart",
+        "title": "Add to Cart Web Application",
+        "year": "2025",
+        "tech": [
+            "React",
+            "JavaScript",
+            "Cart State Management"
+        ],
+        "image": "/images/projects/add-to-cart-clean.png",
+        "description": "Developed a responsive e-commerce application with optimized cart state management and a clean user interface; features live deployment on Vercel.",
+        "live": "https://addtocartfoof.vercel.app/",
+        "source": "https://github.com/khushbooyadav23074/Addtocartfoof",
+        "isStatic": true,
+        "stars": 4
+    },
+    {
+        "id": "scm-system",
+        "title": "Supply Chain Management System",
+        "year": "2023",
+        "tech": [
+            "PHP",
+            "MySQL",
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "image": "/images/projects/scm-clean.png",
+        "description": "Designed and implemented supplier, inventory, and order modules, boosting operational efficiency by 30%. Features a fully responsive front-end.",
+        "live": "https://onlinejeet.com/scms/",
+        "source": "https://github.com/khushbooyadav23074/mySCMproject",
+        "isStatic": true,
+        "stars": 3
+    },
+    {
+        "id": "tic-tac-toe",
+        "title": "Tic-Tac-Toe Game",
+        "year": "2025",
+        "tech": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "image": "/images/projects/tic-tac-toe-clean.png",
+        "description": "A classic interactive Tic-Tac-Toe game with a modern UI, featuring real-time score tracking and responsive design. Built with clean, modular JavaScript logic.",
+        "live": "https://tic-tac-tow-murex.vercel.app/",
+        "source": "https://github.com/khushbooyadav23074/Tic-Tac-Toe-Game",
+        "isStatic": true,
+        "stars": 4
+    },
+    {
+        "id": "music-player",
+        "title": "Music Player",
+        "year": "2025",
+        "tech": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "image": "/images/projects/music-player-clean.png",
+        "description": "A sleek digital music player featuring play/pause controls, song progress bar, and an elegant glassmorphism-inspired UI for an immersive listening experience.",
+        "live": "https://music-player-systems.vercel.app/",
+        "source": "https://github.com/khushbooyadav23074/codealpha_task1",
+        "isStatic": true,
+        "stars": 4
+    }
+]

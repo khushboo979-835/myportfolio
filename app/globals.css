@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    /* Pink/Purple Theme (Default) */
+    --theme-primary: 255 77 166; /* #ff4da6 */
+    --theme-secondary: 168 85 247; /* #a855f7 */
+    --theme-tertiary: 236 72 153; /* #ec4899 */
+    
+    --theme-bg-glow-1: rgba(236,72,153,0.1);
+    --theme-bg-glow-2: rgba(168,85,247,0.1);
+  }
+
+  /* Golden Theme Class representing 'dark' mode style but with yellow/amber accents */
+  .golden {
+    /* Background remains dark */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    /* Golden Theme Colors */
+    --theme-primary: 234 179 8; /* #eab308 (yellow-500) */
+    --theme-secondary: 217 119 6; /* #d97706 (amber-600) */
+    --theme-tertiary: 250 204 21; /* #facc15 (yellow-400) */
+    
+    --theme-bg-glow-1: rgba(234,179,8,0.1);
+    --theme-bg-glow-2: rgba(217,119,6,0.1);
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-[#020617] text-slate-200 transition-colors selection:bg-indigo-500/30 overflow-x-hidden;
+    background-image:
+      radial-gradient(circle at 50% -20%, #1e1b4b, transparent),
+      radial-gradient(circle at 0% 100%, #020617, transparent);
+    background-attachment: fixed;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-[#020617];
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-indigo-600/30 rounded-full hover:bg-indigo-500/50;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-8 text-gray-900 dark:text-white;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-32;
+  }
+
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_10px_40px_rgba(0, 0, 0, 0.3)];
+  }
+
+  .neon-glow-indigo {
+    @apply shadow-[0_0_15px_rgba(99, 102, 241, 0.3)];
+  }
+
+  .neon-text-indigo {
+    text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+  }
+
+  .nav-active-glow {
+    @apply relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:bg-purple-500 after:shadow-[0_0_10px_#8b5cf6] after:rounded-full;
+  }
+}

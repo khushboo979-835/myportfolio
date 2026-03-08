@@ -1,0 +1,98 @@
+[
+    {
+        "id": "oracle-foundations",
+        "title": "Oracle Certified Foundations Associate",
+        "issuer": "Oracle",
+        "image": "/certificates/oracle-foundations.png",
+        "organization": "Oracle",
+        "value": 10
+    },
+    {
+        "id": "java-nptel",
+        "title": "Programming In Java",
+        "issuer": "NPTEL | IIT Kharagpur",
+        "image": "/certificates/programming-java-nptel.png",
+        "organization": "NPTEL",
+        "value": 9
+    },
+    {
+        "id": "cyber-nielit",
+        "title": "Cyber Security and Network Analysis",
+        "issuer": "NIELIT",
+        "image": "/certificates/cyber-security-nielit.jpeg",
+        "organization": "NIELIT",
+        "value": 8
+    },
+    {
+        "id": "cyber-cdac",
+        "title": "Cyber Security and Ethical Hacking",
+        "issuer": "CDAC",
+        "image": "/certificates/cyber-security-cdac.jpeg",
+        "organization": "CDAC",
+        "value": 8
+    },
+    {
+        "id": "deloitte-cyber",
+        "title": "Cyber Job Simulation",
+        "issuer": "Deloitte",
+        "image": "/certificates/cyber-deloitte.png",
+        "organization": "Deloitte",
+        "value": 7
+    },
+    {
+        "id": "frontend-codsoft",
+        "title": "Frontend Developer Internship",
+        "issuer": "CodSoft",
+        "image": "/certificates/frontend-intern-codsoft.png",
+        "organization": "CodSoft",
+        "value": 7
+    },
+    {
+        "id": "english-infosys",
+        "title": "English Proficiency - CEIC",
+        "issuer": "Infosys Springboard",
+        "image": "/certificates/english-infosys.png",
+        "organization": "Infosys",
+        "value": 6
+    },
+    {
+        "id": "git-devtown",
+        "title": "Version Control with Git",
+        "issuer": "Devtown",
+        "image": "/certificates/git.jpeg",
+        "organization": "Devtown",
+        "value": 5
+    },
+    {
+        "id": "sql-advanced",
+        "title": "SQL (Advanced)",
+        "issuer": "HackerRank",
+        "image": "/certificates/sql-advanced.png",
+        "organization": "HackerRank",
+        "value": 5
+    },
+    {
+        "id": "sql-intermediate",
+        "title": "SQL (Intermediate)",
+        "issuer": "HackerRank",
+        "image": "/certificates/sql-intermediate.png",
+        "organization": "HackerRank",
+        "value": 4
+    },
+    {
+        "id": "sql-basic",
+        "title": "SQL (Basic)",
+        "issuer": "HackerRank",
+        "image": "/certificates/sql-basic.png",
+        "organization": "HackerRank",
+        "value": 3
+    },
+    {
+        "id": "idea-kumbh",
+        "title": "IDEA KUMBH 1.0",
+        "issuer": "Patna Women's College",
+        "image": "/certificates/idea-kumbh.jpeg",
+        "organization": "Patna Women's College",
+        "value": 2
+    }
+]
