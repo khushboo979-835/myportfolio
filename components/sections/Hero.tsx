@@ -228,24 +228,11 @@ export function Hero() {
                 ease: [0.16, 1, 0.3, 1],
                 delay: 0.2
               }}
-              className="text-5xl font-black leading-[1.1] text-white md:text-6xl lg:text-7xl xl:text-8xl tracking-tighter"
+              className="text-4xl font-black leading-[1.1] text-white md:text-6xl lg:text-7xl xl:text-8xl tracking-tighter text-center lg:text-left"
             >
               Hi, I&apos;m <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-pink-200 to-pink-500 relative inline-block">
-                Khushboo Kumari
-                <motion.div
-                  className="absolute -bottom-2 left-0 h-1.5 bg-pink-500 shadow-[0_0_20px_rgb(var(--theme-primary))] rounded-full"
-                  initial={{ width: 0 }}
-                  animate={{
-                    width: ['0%', '100%', '100%', '0%']
-                  }}
-                  transition={{
-                    duration: 4,
-                    delay: 1.2,
-                    ease: "easeInOut",
-                    repeat: Infinity,
-                  }}
-                />
+                Khushboo
               </span>
             </motion.h1>
 
@@ -253,6 +240,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
+              className="flex justify-center lg:justify-start"
             >
               <LoopingTypewriter />
             </motion.div>
@@ -261,16 +249,16 @@ export function Hero() {
               initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6 }}
-              className="text-lg md:text-xl text-slate-200 max-w-lg leading-relaxed font-medium"
+              className="text-base md:text-lg lg:text-xl text-slate-200 lg:max-w-lg leading-relaxed font-medium text-center lg:text-left"
             >
-              I build <span className="text-pink-400 font-semibold">responsive web applications</span> with <span className="text-white font-bold underline decoration-pink-500/30">React, Next.js and MERN stack</span>. Currently leading team projects and working as a <span className="text-pink-400 font-semibold">Frontend Developer Intern</span> at <span className="text-pink-500 font-bold">Mecenza</span>.
+              I build <span className="text-pink-400 font-semibold">responsive web applications</span> with <span className="text-white font-bold underline decoration-pink-500/30">React, Next.js and MERN stack</span>. Currently leading team projects and working as a <span className="text-pink-400 font-semibold">Frontend Developer Intern</span> at <span className="text-pink-500 font-bold hover:scale-105 transition-transform inline-block">Mecenza</span>.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="flex flex-wrap gap-6"
+              className="flex flex-wrap justify-center lg:justify-start gap-4 md:gap-6"
             >
               <SpotlightButton
                 onClick={() => scrollToSection('projects')}
@@ -293,7 +281,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
-              className="flex items-center gap-6"
+              className="flex items-center justify-center lg:justify-start gap-4 md:gap-6"
             >
               {socialLinks.map((social, i) => (
                 <Link
@@ -318,9 +306,9 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="relative w-full lg:w-1/2 flex justify-center items-center mt-12 lg:mt-0"
+            className="relative w-full lg:w-1/2 flex justify-center items-center mt-8 md:mt-12 lg:mt-0"
           >
-            <div className="relative w-64 h-64 md:w-[320px] md:h-[320px] lg:w-[420px] lg:h-[420px] flex items-center justify-center">
+            <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-[320px] md:h-[320px] lg:w-[420px] lg:h-[420px] flex items-center justify-center">
 
               {/* Synchronized Outer Pulse Ring - Snappier Fade-out */}
               <motion.div

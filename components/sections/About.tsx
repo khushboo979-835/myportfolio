@@ -132,7 +132,7 @@ export function About() {
     <section
       id="about"
       ref={containerRef}
-      className="relative py-16 md:py-24 overflow-hidden flex items-center justify-center bg-[#030014]"
+      className="relative py-12 md:py-24 overflow-hidden flex items-center justify-center bg-[#030014]"
     >
       {/* Immersive Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
@@ -164,7 +164,7 @@ export function About() {
 
       <div className="container-custom relative z-10 w-full px-6 md:px-12">
         {/* Mobile Header (Visible only on mobile) */}
-        <div className="md:hidden text-center mb-12">
+        <div className="md:hidden text-center mb-8">
           <div className="flex flex-col items-center space-y-4">
             <h2 className="text-4xl md:text-5xl font-black bg-gradient-to-r from-white via-pink-400 to-pink-600 bg-clip-text text-transparent">
               About Me
@@ -303,7 +303,7 @@ export function About() {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="absolute w-[240px] h-[240px] md:w-[280px] md:h-[280px] lg:w-[340px] lg:h-[340px] border border-white/10 rounded-full flex items-center justify-center"
+              className="absolute w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] md:w-[280px] md:h-[280px] lg:w-[340px] lg:h-[340px] border border-white/10 rounded-full flex items-center justify-center"
             >
               {innerOrbitIcons.map((item, i) => {
                 const angle = (i / innerOrbitIcons.length) * 360;
@@ -313,7 +313,7 @@ export function About() {
                     className="absolute w-full h-full flex items-center justify-center pointer-events-none"
                     style={{ transform: `rotate(${angle}deg)` }}
                   >
-                    <div className="pointer-events-auto absolute -translate-y-[120px] md:-translate-y-[140px] lg:-translate-y-[170px] w-10 h-10 flex items-center justify-center bg-[#030014]/60 backdrop-blur-md rounded-full border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:scale-110 transition-transform">
+                    <div className="pointer-events-auto absolute -translate-y-[100px] sm:-translate-y-[120px] md:-translate-y-[140px] lg:-translate-y-[170px] w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-[#030014]/60 backdrop-blur-md rounded-full border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:scale-110 transition-transform">
                       <motion.div
                         animate={{ rotate: -360 }}
                         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
@@ -333,7 +333,7 @@ export function About() {
             <motion.div
               animate={{ rotate: -360 }}
               transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-              className="absolute w-[300px] h-[300px] md:w-[360px] md:h-[360px] lg:w-[420px] lg:h-[420px] border border-white/5 rounded-full flex items-center justify-center"
+              className="absolute w-[260px] h-[260px] sm:w-[300px] sm:h-[300px] md:w-[360px] md:h-[360px] lg:w-[420px] lg:h-[420px] border border-white/5 rounded-full flex items-center justify-center"
             >
               {outerOrbitIcons.map((item, i) => {
                 const angle = (i / outerOrbitIcons.length) * 360;
@@ -343,7 +343,7 @@ export function About() {
                     className="absolute w-full h-full flex items-center justify-center pointer-events-none"
                     style={{ transform: `rotate(${angle}deg)` }}
                   >
-                    <div className="pointer-events-auto absolute -translate-y-[150px] md:-translate-y-[180px] lg:-translate-y-[210px] w-12 h-12 flex items-center justify-center bg-[#030014]/60 backdrop-blur-md rounded-full border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:scale-110 transition-transform">
+                    <div className="pointer-events-auto absolute -translate-y-[130px] sm:-translate-y-[150px] md:-translate-y-[180px] lg:-translate-y-[210px] w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-[#030014]/60 backdrop-blur-md rounded-full border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:scale-110 transition-transform">
                       <motion.div
                         animate={{ rotate: 360 }}
                         transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
@@ -363,7 +363,7 @@ export function About() {
             <motion.div
               animate={{ y: [-10, 10, -10] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="relative z-10 w-[180px] h-[180px] md:w-[220px] md:h-[220px] lg:w-[260px] lg:h-[260px] rounded-full p-1.5 md:p-2 bg-gradient-to-tr from-pink-600 via-purple-600 to-cyan-500 shadow-[0_0_40px_rgba(var(--theme-primary),)]"
+              className="relative z-10 w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] md:w-[220px] md:h-[220px] lg:w-[260px] lg:h-[260px] rounded-full p-1.5 md:p-2 bg-gradient-to-tr from-pink-600 via-purple-600 to-cyan-500 shadow-[0_0_40px_rgba(var(--theme-primary),)]"
             >
               <div className="w-full h-full rounded-full overflow-hidden border-4 border-[#030014] relative bg-[#030014]">
                 <Image
