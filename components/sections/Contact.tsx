@@ -159,14 +159,17 @@ export function Contact() {
               </motion.div>
             ))}
 
-            {/* Decorative Premium Element (Floating Glass Card) */}
+            {/* Decorative Premium Element (Floating Glass Card) - Now visible on mobile and clickable */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="hidden lg:block pt-4"
+              className="pt-4 pb-8 lg:pb-0"
             >
-              <div className="relative w-full aspect-square max-w-[240px] mx-auto flex items-center justify-center">
+              <a
+                href="mailto:Khushbooyadav23074@gmail.com"
+                className="relative w-full aspect-square max-w-[180px] lg:max-w-[240px] mx-auto flex items-center justify-center cursor-pointer group/mail"
+              >
                 {/* Layered Orbital Rings */}
                 <div className="absolute inset-0 border-[2px] border-dashed border-pink-500/20 rounded-full animate-[spin_35s_linear_infinite]" />
                 <div className="absolute inset-4 border border-purple-500/30 rounded-full animate-[spin_25s_linear_infinite_reverse]" />
@@ -190,10 +193,10 @@ export function Contact() {
                     repeat: Infinity,
                     ease: "easeInOut"
                   }}
-                  className="relative z-10 w-36 h-36 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center group overflow-hidden shadow-xl"
+                  className="relative z-10 w-24 h-24 lg:w-36 lg:h-36 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center group overflow-hidden shadow-xl"
                   style={{ perspective: "1000px" }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-purple-500/10 opacity-0 group-hover/mail:opacity-100 transition-opacity duration-500" />
                   <div className="absolute -inset-[100%] bg-gradient-to-r from-transparent via-white/10 to-transparent rotate-45 animate-[shimmer_5s_infinite]" />
 
                   <div className="relative">
@@ -225,8 +228,8 @@ export function Contact() {
                     }}
                   />
                 ))}
-                <div className="absolute inset-8 bg-gradient-to-r from-pink-500/20 to-purple-500/20 blur-[60px] rounded-full animate-pulse" />
-              </div>
+                <div className="absolute inset-8 bg-gradient-to-r from-pink-500/20 to-purple-500/20 blur-[40px] lg:blur-[60px] rounded-full animate-pulse group-hover/mail:from-pink-500/40 group-hover/mail:to-purple-500/40 transition-colors duration-500" />
+              </a>
             </motion.div>
           </div>
 

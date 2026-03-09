@@ -251,7 +251,7 @@ export function Skills() {
     <section
       id="skills"
       onClick={() => setExpandedId(null)}
-      className="relative bg-[#030014] min-h-screen py-16 md:py-24 overflow-hidden flex flex-col items-center justify-center cursor-default"
+      className="relative bg-[#030014] py-20 md:py-32 md:min-h-screen overflow-hidden flex flex-col items-center justify-center cursor-default"
     >
       <BackgroundGlow />
 

@@ -132,7 +132,7 @@ export function About() {
     <section
       id="about"
       ref={containerRef}
-      className="relative py-20 md:py-32 overflow-hidden flex items-center justify-center bg-[#030014]"
+      className="relative py-16 md:py-24 overflow-hidden flex items-center justify-center bg-[#030014]"
     >
       {/* Immersive Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
@@ -164,7 +164,7 @@ export function About() {
 
       <div className="container-custom relative z-10 w-full px-6 md:px-12">
         {/* Mobile Header (Visible only on mobile) */}
-        <div className="lg:hidden text-center mb-16">
+        <div className="md:hidden text-center mb-12">
           <div className="flex flex-col items-center space-y-4">
             <h2 className="text-4xl md:text-5xl font-black bg-gradient-to-r from-white via-pink-400 to-pink-600 bg-clip-text text-transparent">
               About Me
@@ -182,7 +182,7 @@ export function About() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-8 items-center justify-between">
 
           {/* LEFT SIDE: Text Content */}
           <motion.div
@@ -190,10 +190,10 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col items-center lg:items-start space-y-8 text-center lg:text-left order-2 lg:order-1"
+            className="w-full lg:w-[45%] flex flex-col items-center md:items-start space-y-6 md:space-y-8 text-center md:text-left order-2 lg:order-1"
           >
             {/* Desktop Heading (Hidden on mobile) */}
-            <div className="hidden lg:flex flex-col items-start space-y-4">
+            <div className="hidden md:flex flex-col items-start space-y-4">
               <h2 className="text-4xl md:text-6xl font-black bg-gradient-to-r from-white via-pink-400 to-pink-600 bg-clip-text text-transparent w-fit">
                 About Me
               </h2>
@@ -248,7 +248,7 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-wrap gap-3 justify-center lg:justify-start max-w-xl"
+              className="flex flex-wrap gap-3 justify-center md:justify-start max-w-xl"
             >
               {skillTags.map((skill, i) => (
                 <motion.span
@@ -294,7 +294,7 @@ export function About() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="relative flex justify-center items-center order-1 lg:order-2 min-h-[400px] lg:min-h-[600px] w-full"
+            className="w-full lg:w-[50%] relative flex justify-center items-center order-1 lg:order-2 min-h-[400px] md:min-h-[500px] lg:min-h-[600px]"
           >
             {/* Soft Glow behind image */}
             <div className="absolute w-[200px] h-[200px] md:w-[260px] md:h-[260px] bg-pink-500/30 blur-[80px] rounded-full" />
@@ -303,7 +303,7 @@ export function About() {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="absolute w-[240px] h-[240px] md:w-[340px] md:h-[340px] border border-white/10 rounded-full flex items-center justify-center"
+              className="absolute w-[240px] h-[240px] md:w-[280px] md:h-[280px] lg:w-[340px] lg:h-[340px] border border-white/10 rounded-full flex items-center justify-center"
             >
               {innerOrbitIcons.map((item, i) => {
                 const angle = (i / innerOrbitIcons.length) * 360;
@@ -313,7 +313,7 @@ export function About() {
                     className="absolute w-full h-full flex items-center justify-center pointer-events-none"
                     style={{ transform: `rotate(${angle}deg)` }}
                   >
-                    <div className="pointer-events-auto absolute -translate-y-[120px] md:-translate-y-[170px] w-10 h-10 flex items-center justify-center bg-[#030014]/60 backdrop-blur-md rounded-full border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:scale-110 transition-transform">
+                    <div className="pointer-events-auto absolute -translate-y-[120px] md:-translate-y-[140px] lg:-translate-y-[170px] w-10 h-10 flex items-center justify-center bg-[#030014]/60 backdrop-blur-md rounded-full border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:scale-110 transition-transform">
                       <motion.div
                         animate={{ rotate: -360 }}
                         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
@@ -333,7 +333,7 @@ export function About() {
             <motion.div
               animate={{ rotate: -360 }}
               transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-              className="absolute w-[300px] h-[300px] md:w-[420px] md:h-[420px] border border-white/5 rounded-full flex items-center justify-center"
+              className="absolute w-[300px] h-[300px] md:w-[360px] md:h-[360px] lg:w-[420px] lg:h-[420px] border border-white/5 rounded-full flex items-center justify-center"
             >
               {outerOrbitIcons.map((item, i) => {
                 const angle = (i / outerOrbitIcons.length) * 360;
@@ -343,7 +343,7 @@ export function About() {
                     className="absolute w-full h-full flex items-center justify-center pointer-events-none"
                     style={{ transform: `rotate(${angle}deg)` }}
                   >
-                    <div className="pointer-events-auto absolute -translate-y-[150px] md:-translate-y-[210px] w-12 h-12 flex items-center justify-center bg-[#030014]/60 backdrop-blur-md rounded-full border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:scale-110 transition-transform">
+                    <div className="pointer-events-auto absolute -translate-y-[150px] md:-translate-y-[180px] lg:-translate-y-[210px] w-12 h-12 flex items-center justify-center bg-[#030014]/60 backdrop-blur-md rounded-full border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:scale-110 transition-transform">
                       <motion.div
                         animate={{ rotate: 360 }}
                         transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
@@ -363,14 +363,14 @@ export function About() {
             <motion.div
               animate={{ y: [-10, 10, -10] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="relative z-10 w-[180px] h-[180px] md:w-[260px] md:h-[260px] rounded-full p-1.5 md:p-2 bg-gradient-to-tr from-pink-600 via-purple-600 to-cyan-500 shadow-[0_0_40px_rgba(var(--theme-primary),)]"
+              className="relative z-10 w-[180px] h-[180px] md:w-[220px] md:h-[220px] lg:w-[260px] lg:h-[260px] rounded-full p-1.5 md:p-2 bg-gradient-to-tr from-pink-600 via-purple-600 to-cyan-500 shadow-[0_0_40px_rgba(var(--theme-primary),)]"
             >
               <div className="w-full h-full rounded-full overflow-hidden border-4 border-[#030014] relative bg-[#030014]">
                 <Image
                   src="/profile-about.jpeg"
                   alt="Profile"
                   fill
-                  sizes="(max-width: 768px) 180px, 260px"
+                  sizes="(max-width: 768px) 180px, (max-width: 1024px) 220px, 260px"
                   className="object-cover hover:scale-110 transition-transform duration-500"
                   priority
                 />

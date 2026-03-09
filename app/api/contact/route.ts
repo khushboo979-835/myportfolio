@@ -12,6 +12,27 @@ const contactSchema = z.object({
     message: z.string().min(10, 'Message must be at least 10 characters'),
 });
 
+// GET handler for health checks
+export async function GET() {
+    return NextResponse.json({
+        success: true,
+        message: 'Contact API is active and reachable.',
+        timestamp: new Date().toISOString()
+    });
+}
+
+// OPTIONS handler for preflight requests
+export async function OPTIONS() {
+    return new NextResponse(null, {
+        status: 204,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        },
+    });
+}
+
 export async function POST(req: NextRequest) {
     try {
         const ip = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || '127.0.0.1';
@@ -92,14 +113,18 @@ export async function POST(req: NextRequest) {
 
         return NextResponse.json({ success: true });
     } catch (error: any) {
-        console.error('Contact API Error:', error);
+        console.error('--- CONTACT API CRITICAL ERROR ---');
+        console.error('Error Name:', error.name);
+        console.error('Error Message:', error.message);
+        console.error('Stack Trace:', error.stack);
+
         if (error instanceof z.ZodError) {
             return NextResponse.json({ success: false, errors: error.flatten().fieldErrors }, { status: 400 });
         }
 
         // Check for missing DB connection
-        if (error.message?.includes('MONGODB_URI') || error.name === 'MongooseError') {
-            return NextResponse.json({ success: false, error: 'Database connection failed. Check .env.local file.' }, { status: 500 });
+        if (error.message?.includes('MONGODB_URI') || error.name === 'MongooseError' || error.name === 'MongoServerError') {
+            return NextResponse.json({ success: false, error: 'Database connection failed. Please contact me directly while I fix this!' }, { status: 500 });
         }
 
         return NextResponse.json({ success: false, error: 'Failed to send message. Please try again later.' }, { status: 500 });

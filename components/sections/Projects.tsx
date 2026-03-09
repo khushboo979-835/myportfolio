@@ -34,7 +34,7 @@ export function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="py-32 relative overflow-hidden bg-[#030014]">
+    <section id="projects" className="py-16 md:py-32 relative overflow-hidden bg-[#030014]">
       {/* Background Decor */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 -left-1/4 w-[700px] h-[700px] bg-purple-900/20 blur-[150px] rounded-full mix-blend-screen animate-pulse" />
@@ -114,8 +114,8 @@ function ProjectCard({ project, color, offset, delay }: { project: any, color: s
         className="absolute inset-0 rounded-[2.5rem] pointer-events-none z-30 border border-transparent group-hover:border-white/20 transition-all duration-700"
         style={{
           boxShadow: isHovered
-            ? `0 0 50px ${color.replace('0.6', '0.6')}, inset 0 0 20px ${color.replace('0.6', '0.4')}`
-            : `0 0 0px transparent, inset 0 0 0px transparent`,
+            ? `0 0 80px ${color.replace('0.6', '0.8')}, inset 0 0 30px ${color.replace('0.6', '0.5')}`
+            : `0 0 20px ${color.replace('0.6', '0.1')}, inset 0 0 10px ${color.replace('0.6', '0.05')}`,
         }}
       />
 
@@ -141,9 +141,9 @@ function ProjectCard({ project, color, offset, delay }: { project: any, color: s
               ease: "easeInOut",
               delay: i * 0.4
             }}
-            className={`absolute w-32 h-32 ${glow.pos} -translate-x-1/2 -translate-y-1/2 bg-white/20 blur-[30px] rounded-full`}
+            className={`absolute w-40 h-40 ${glow.pos} -translate-x-1/2 -translate-y-1/2 bg-white/30 blur-[40px] rounded-full`}
             style={{
-              background: `radial-gradient(circle at center, ${color}, transparent 80%)`,
+              background: `radial-gradient(circle at center, ${color.replace('0.6', '0.8')}, transparent 80%)`,
             }}
           />
         ))}
@@ -151,10 +151,10 @@ function ProjectCard({ project, color, offset, delay }: { project: any, color: s
 
       {/* Top and Side Neon Lines */}
       <div
-        className="absolute inset-x-8 top-[-1px] h-[3px] opacity-40 group-hover:opacity-100 transition-opacity duration-700 z-40 rounded-full"
+        className="absolute inset-x-8 top-[-1px] h-[4px] opacity-60 group-hover:opacity-100 transition-opacity duration-700 z-40 rounded-full"
         style={{
-          background: `linear-gradient(90deg, transparent, ${color}, transparent)`,
-          boxShadow: `0 0 30px ${color}, 0 0 60px ${color}`
+          background: `linear-gradient(90deg, transparent, ${color.replace('0.6', '0.9')}, transparent)`,
+          boxShadow: `0 0 40px ${color.replace('0.6', '0.9')}, 0 0 80px ${color}`
         }}
       />
 
@@ -163,10 +163,10 @@ function ProjectCard({ project, color, offset, delay }: { project: any, color: s
 
         {/* specific glowing light emerging at the inner boundary corner when touched */}
         <div
-          className="absolute inset-0 opacity-0 group-hover/img:opacity-100 transition-opacity duration-500 pointer-events-none z-20"
+          className="absolute inset-0 opacity-20 group-hover/img:opacity-100 transition-opacity duration-500 pointer-events-none z-20"
           style={{
-            boxShadow: `0 0 40px ${color} inset`,
-            background: `radial-gradient(circle at center, transparent 40%, ${color.replace('0.6', '0.15')} 100%)`
+            boxShadow: `0 0 60px ${color.replace('0.6', '0.5')} inset`,
+            background: `radial-gradient(circle at center, transparent 30%, ${color.replace('0.6', '0.25')} 100%)`
           }}
         />
 
@@ -220,13 +220,23 @@ function ProjectCard({ project, color, offset, delay }: { project: any, color: s
             href={project.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-[3] h-14 rounded-2xl bg-white/5 border border-white/10 text-white text-[10px] font-black uppercase tracking-[0.3em] flex items-center justify-center gap-3 hover:bg-white/10 hover:border-white/20 transition-all active:scale-95 group/btn overflow-hidden relative shadow-lg"
+            className="flex-[3] h-14 rounded-2xl text-white text-[10px] font-black uppercase tracking-[0.3em] flex items-center justify-center gap-3 transition-all hover:scale-[1.02] active:scale-95 group/btn relative overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/20 hover:border-white/50"
+            style={{
+              background: `linear-gradient(135deg, ${color.replace('0.6', '0.2')} 0%, rgba(255,255,255,0.05) 100%)`
+            }}
           >
+            {/* Animated Hover Gradient Overlay text-white/90 */}
             <div
-              className="absolute inset-0 opacity-0 group-hover/btn:opacity-20 transition-opacity duration-300"
-              style={{ background: color }}
+              className="absolute inset-0 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500 z-0"
+              style={{
+                background: `linear-gradient(90deg, transparent, ${color.replace('0.6', '0.4')}, transparent)`
+              }}
             />
-            Live Demo <FaExternalLinkAlt size={11} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+            {/* Glossy top edge */}
+            <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/10 to-transparent z-0 pointer-events-none" />
+
+            <span className="relative z-10 drop-shadow-md">Live Demo</span>
+            <FaExternalLinkAlt size={11} className="relative z-10 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform drop-shadow-md" />
           </a>
           <a
             href={project.source}

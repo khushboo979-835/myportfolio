@@ -80,6 +80,92 @@ const LoopingTypewriter = () => {
   );
 };
 
+interface SpotlightButtonProps {
+  children: React.ReactNode;
+  onClick: () => void;
+  glowColor: string;
+  textColorClass: string;
+}
+
+const SpotlightButton = ({ children, onClick, glowColor, textColorClass }: SpotlightButtonProps) => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [opacity, setOpacity] = useState(0);
+  const buttonRef = React.useRef<HTMLButtonElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (!buttonRef.current) return;
+    const rect = buttonRef.current.getBoundingClientRect();
+    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  return (
+    <button
+      ref={buttonRef}
+      onClick={onClick}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setOpacity(1)}
+      onMouseLeave={() => setOpacity(0)}
+      // Bouncy "jelly" hover scale and transition
+      className="group relative inline-flex h-16 items-center justify-center rounded-full bg-transparent px-10 font-bold text-lg text-white transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-110 active:scale-90 z-10"
+    >
+      {/* 
+        JELLY BASE: Semi-transparent backdrop-blur with a glassy inner shadow 
+        This gives it the physical, gelatinous volume.
+      */}
+      <div
+        className="absolute inset-0 rounded-full backdrop-blur-md bg-white/[0.03] shadow-[0_8px_32px_rgba(0,0,0,0.5)] pointer-events-none z-[-1] border border-white/10"
+        style={{
+          boxShadow: `inset 0 2px 4px rgba(255,255,255,0.2), inset 0 -4px 10px rgba(0,0,0,0.4), 0 10px 20px rgba(0,0,0,0.5)`,
+        }}
+      />
+
+      {/* --- IDLE STATE --- */}
+      {/* Persistent Ambient Edge Glow (Soft Jelly Light) */}
+      <div
+        className="absolute inset-[-4px] rounded-full blur-[10px] opacity-100 group-hover:opacity-30 pointer-events-none mix-blend-screen transition-opacity duration-500 z-[-2]"
+        style={{
+          background: `linear-gradient(90deg, ${glowColor}40 0%, transparent 20%, transparent 80%, ${glowColor}40 100%)`
+        }}
+      />
+
+      {/* --- HOVER STATE: Mouse-Tracking Effect --- */}
+      {/* Outer Glow (Blurred - responds to mouse) */}
+      <div
+        className="absolute inset-[0px] rounded-full transition-opacity duration-300 blur-[8px] z-0 pointer-events-none mix-blend-screen overflow-visible"
+        style={{
+          opacity: opacity ? 0.8 : 0,
+          background: `radial-gradient(120px circle at ${position.x}px ${position.y}px, ${glowColor}, transparent 100%)`,
+        }}
+      />
+      {/* Glow Line (Sharp inner tracking light) */}
+      <div
+        className="absolute inset-0 rounded-full transition-opacity duration-300 z-0 pointer-events-none mix-blend-screen overflow-hidden border border-transparent"
+        style={{
+          opacity: opacity ? 1 : 0,
+          background: `radial-gradient(70px circle at ${position.x}px ${position.y}px, ${glowColor}, transparent 100%) border-box`,
+          WebkitMask: 'linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)',
+          WebkitMaskComposite: 'xor',
+          maskComposite: 'exclude',
+        }}
+      />
+
+      {/* Optional subtle inner jelly glow when hovered */}
+      <div
+        className="absolute inset-0 rounded-full transition-opacity duration-300 z-0 pointer-events-none"
+        style={{
+          opacity: opacity ? 0.15 : 0,
+          background: `radial-gradient(150px circle at ${position.x}px ${position.y}px, ${glowColor}, transparent 100%)`,
+        }}
+      />
+
+      {/* Button Content */}
+      <span className={cn("relative z-10 transition-colors duration-300", textColorClass)}>
+        {children}
+      </span>
+    </button>
+  );
+};
+
 export function Hero() {
   const [activeSocial, setActiveSocial] = useState<number | null>(null);
 
@@ -98,12 +184,6 @@ export function Hero() {
       activeColor: "text-[#0077b5] border-[#0077b5]/50 bg-[#0077b5]/10 shadow-[0_0_20px_rgba(0,119,181,0.3)]"
     },
     {
-      icon: FaTwitter,
-      href: "#",
-      color: "hover:text-[#1DA1F2] hover:border-[#1DA1F2]/50 hover:bg-[#1DA1F2]/10 hover:shadow-[0_0_20px_rgba(29,161,242,0.3)]",
-      activeColor: "text-[#1DA1F2] border-[#1DA1F2]/50 bg-[#1DA1F2]/10 shadow-[0_0_20px_rgba(29,161,242,0.3)]"
-    },
-    {
       icon: FaGithub,
       href: "https://github.com/khushbooyadav23074",
       color: "hover:text-white hover:border-white/50 hover:bg-white/10 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]",
@@ -114,7 +194,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center pt-32 md:pt-40 pb-32 overflow-hidden bg-black"
+      className="relative flex items-center pt-32 md:pt-40 pb-16 md:pb-24 overflow-hidden bg-black lg:min-h-screen"
     >
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div
@@ -132,13 +212,13 @@ export function Hero() {
       </div>
 
       <div className="container-custom relative z-10 mx-auto">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+        <div className="flex flex-col lg:flex-row items-center gap-12 md:gap-16 w-full">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col space-y-8"
+            className="w-full lg:w-1/2 flex flex-col space-y-6 lg:space-y-8 lg:pr-4"
           >
             <motion.h1
               initial={{ opacity: 0, x: -100 }}
@@ -148,7 +228,7 @@ export function Hero() {
                 ease: [0.16, 1, 0.3, 1],
                 delay: 0.2
               }}
-              className="text-5xl font-black leading-[1.1] text-white md:text-7xl lg:text-8xl tracking-tighter"
+              className="text-5xl font-black leading-[1.1] text-white md:text-6xl lg:text-7xl xl:text-8xl tracking-tighter"
             >
               Hi, I&apos;m <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-pink-200 to-pink-500 relative inline-block">
@@ -192,19 +272,21 @@ export function Hero() {
               transition={{ delay: 0.8 }}
               className="flex flex-wrap gap-6"
             >
-              <button
+              <SpotlightButton
                 onClick={() => scrollToSection('projects')}
-                className="group relative px-10 py-4 rounded-full bg-white text-black font-bold text-lg overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95"
+                glowColor="#f472b6"
+                textColorClass="bg-gradient-to-r from-pink-200 to-purple-200 bg-clip-text text-transparent group-hover:from-white group-hover:to-white"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <span className="relative z-10 group-hover:text-white transition-colors duration-300">View Projects</span>
-              </button>
-              <button
+                View Projects
+              </SpotlightButton>
+
+              <SpotlightButton
                 onClick={() => scrollToSection('contact')}
-                className="px-10 py-4 rounded-full bg-black border-2 border-pink-500/50 text-white font-bold text-lg hover:border-pink-500 hover:shadow-[0_0_30px_rgba(var(--theme-primary),)] backdrop-blur-md transition-all duration-300 hover:scale-105 active:scale-95"
+                glowColor="#a855f7"
+                textColorClass="bg-gradient-to-r from-purple-200 to-pink-200 bg-clip-text text-transparent group-hover:from-white group-hover:to-white"
               >
                 Contact Me
-              </button>
+              </SpotlightButton>
             </motion.div>
 
             <motion.div
@@ -236,9 +318,9 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="relative flex justify-center items-center lg:justify-end"
+            className="relative w-full lg:w-1/2 flex justify-center items-center mt-12 lg:mt-0"
           >
-            <div className="relative w-64 h-64 md:w-[420px] md:h-[420px] flex items-center justify-center">
+            <div className="relative w-64 h-64 md:w-[320px] md:h-[320px] lg:w-[420px] lg:h-[420px] flex items-center justify-center">
 
               {/* Synchronized Outer Pulse Ring - Snappier Fade-out */}
               <motion.div

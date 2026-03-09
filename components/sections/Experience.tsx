@@ -34,36 +34,34 @@ const SparkleParticles = ({ isHovered }: { isHovered: boolean }) => {
   }[]>([]);
 
   useEffect(() => {
-    if (isHovered) {
-      const interval = setInterval(() => {
-        // Generate multiple particles per tick for a denser, more professional look
-        const newParticles = Array.from({ length: 4 }).map((_, i) => {
-          const isTopRight = Math.random() > 0.5;
-          // Base position starts strictly at the very edge of the container
-          const startX = isTopRight ? 100 : 0;
-          const startY = isTopRight ? 0 : 100;
+    // Generate particles continuously, but faster on hover
+    const intervalTime = isHovered ? 70 : 600;
+    const generateCount = isHovered ? 4 : 1;
 
-          // Pre-compute the target destination for a perfectly smooth vector without shaking
-          const targetX = isTopRight ? (Math.random() * 80 + 30) : -(Math.random() * 80 + 30);
-          const targetY = isTopRight ? -(Math.random() * 80 + 30) : (Math.random() * 80 + 30);
+    const interval = setInterval(() => {
+      const newParticles = Array.from({ length: generateCount }).map((_, i) => {
+        const isTopRight = Math.random() > 0.5;
+        const startX = isTopRight ? 100 : 0;
+        const startY = isTopRight ? 0 : 100;
 
-          return {
-            id: Date.now() + i + Math.random(),
-            x: startX,
-            y: startY,
-            targetX,
-            targetY,
-            size: Math.random() * 3.5 + 1.5,
-            duration: Math.random() * 1.5 + 1.5 // Smooth, slower fade
-          };
-        });
+        const targetX = isTopRight ? (Math.random() * 80 + 30) : -(Math.random() * 80 + 30);
+        const targetY = isTopRight ? -(Math.random() * 80 + 30) : (Math.random() * 80 + 30);
 
-        setParticles(prev => [...prev.slice(-80), ...newParticles]);
-      }, 70); // Faster interval
-      return () => clearInterval(interval);
-    } else {
-      setParticles([]);
-    }
+        return {
+          id: Date.now() + i + Math.random(),
+          x: startX,
+          y: startY,
+          targetX,
+          targetY,
+          size: Math.random() * 3.5 + 1.5,
+          duration: Math.random() * 1.5 + 1.5
+        };
+      });
+
+      setParticles(prev => [...prev.slice(-80), ...newParticles]);
+    }, intervalTime);
+
+    return () => clearInterval(interval);
   }, [isHovered]);
 
   return (
@@ -101,32 +99,49 @@ const SparkleParticles = ({ isHovered }: { isHovered: boolean }) => {
 const NeonBorders = ({ isHovered }: { isHovered: boolean }) => {
   return (
     <>
-      {/* Outer Glow Wrapper */}
+      {/* Outer Ambient Jelly Glow - THICKER AND MORE COLORFUL */}
       <div
-        className="absolute inset-0 pointer-events-none z-10 transition-all duration-700"
+        className="absolute inset-[-15px] pointer-events-none z-0 transition-all duration-700 blur-[30px]"
         style={{
-          borderRadius: '60px 0 60px 0',
-          boxShadow: isHovered ? '0 0 60px rgba(var(--theme-primary),)' : '0 0 20px rgba(var(--theme-primary),)',
+          borderRadius: '70px 0 70px 0',
+          background: isHovered
+            ? 'linear-gradient(135deg, rgba(var(--theme-primary), 0.6) 0%, rgba(var(--theme-secondary), 0.4) 100%)'
+            : 'linear-gradient(135deg, rgba(var(--theme-primary), 0.3) 0%, transparent 100%)',
+          opacity: isHovered ? 1 : 0.6,
         }}
       />
 
-      {/* Primary Border (External) */}
+      {/* Glassy Border Line - THICKER */}
       <div
-        className="absolute inset-0 border-[3px] pointer-events-none z-20 transition-all duration-500"
+        className="absolute inset-0 pointer-events-none z-20 transition-all duration-500 border-[3px]"
         style={{
           borderRadius: '60px 0 60px 0',
-          borderColor: 'rgb(var(--theme-primary))',
-          boxShadow: 'inset 0 0 20px rgba(var(--theme-primary),), 0 0 20px rgba(var(--theme-primary),)',
-          background: 'linear-gradient(135deg, rgba(var(--theme-primary),) 0%, transparent 100%)'
+          borderColor: isHovered ? 'rgba(var(--theme-primary), 1)' : 'rgba(var(--theme-primary), 0.3)',
+          boxShadow: isHovered
+            ? 'inset 0 0 30px rgba(var(--theme-primary), 0.5), 0 0 45px rgba(var(--theme-primary), 0.8)'
+            : 'inset 0 0 10px rgba(var(--theme-primary), 0.2), 0 0 20px rgba(var(--theme-primary), 0.2)'
         }}
       />
 
-      {/* Thin Light Line (The "Lighting" highlight) */}
+      {/* Floating Light Beam (Boundary highlight) - MORE PROMINENT */}
       <motion.div
-        animate={{ opacity: [0.3, 0.9, 0.3], rotate: [0, 360] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-        className="absolute inset-[-2px] border border-white/30 pointer-events-none z-30"
-        style={{ borderRadius: '60px 0 60px 0' }}
+        animate={{
+          opacity: isHovered ? [0.6, 1, 0.6] : [0.3, 0.6, 0.3],
+          background: [
+            'linear-gradient(0deg, transparent, rgba(255,255,255,0.6), transparent)',
+            'linear-gradient(180deg, transparent, rgba(255,255,255,0.6), transparent)',
+            'linear-gradient(360deg, transparent, rgba(255,255,255,0.6), transparent)'
+          ]
+        }}
+        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+        className="absolute inset-0 pointer-events-none z-30"
+        style={{
+          borderRadius: '60px 0 60px 0',
+          padding: '2px', // Slightly thicker beam
+          WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+          WebkitMaskComposite: 'xor',
+          maskComposite: 'exclude',
+        }}
       />
     </>
   );
@@ -135,6 +150,14 @@ const NeonBorders = ({ isHovered }: { isHovered: boolean }) => {
 
 const ExperienceCard = ({ item }: { item: typeof experiences[0] }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setMousePos({ x, y });
+  };
 
   return (
     <motion.div
@@ -143,19 +166,33 @@ const ExperienceCard = ({ item }: { item: typeof experiences[0] }) => {
       viewport={{ once: true }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onMouseMove={handleMouseMove}
       className="relative w-full max-w-5xl mx-auto p-[2px] transition-all duration-500 overflow-visible"
     >
       <SparkleParticles isHovered={isHovered} />
 
       <div
-        className="relative flex flex-col md:flex-row gap-8 p-10 md:p-14 bg-[#050614] backdrop-blur-3xl overflow-hidden shadow-2xl transition-transform duration-500 group"
-        style={{ borderRadius: '60px 0 60px 0' }}
+        className="relative flex flex-col md:flex-row gap-8 p-10 md:p-14 bg-white/[0.03] backdrop-blur-md overflow-hidden shadow-2xl transition-all duration-500 group group-hover:scale-[1.02] ease-[cubic-bezier(0.34,1.56,0.64,1)] active:scale-95"
+        style={{
+          borderRadius: '60px 0 60px 0',
+          boxShadow: `inset 0 4px 8px rgba(255,255,255,0.1), inset 0 -4px 12px rgba(0,0,0,0.4), 0 20px 40px rgba(0,0,0,0.5)`,
+        }}
       >
         <NeonBorders isHovered={isHovered} />
 
+        {/* Interactive Mouse Spotlight Glow */}
+        <motion.div
+          animate={{ opacity: isHovered ? 1 : 0 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          className="absolute inset-0 pointer-events-none z-10"
+          style={{
+            background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(var(--theme-primary), 0.15), transparent 40%)`
+          }}
+        />
+
         {/* Ambient background light */}
         <div
-          className="absolute inset-x-0 top-0 h-40 opacity-10 blur-[60px] pointer-events-none z-0"
+          className={`absolute inset-x-0 top-0 h-full opacity-10 blur-[80px] pointer-events-none z-0 transition-all duration-700 ${isHovered ? 'opacity-30 blur-[100px]' : ''}`}
           style={{ background: 'radial-gradient(circle at top, rgb(var(--theme-primary)), transparent)' }}
         />
 
@@ -192,7 +229,12 @@ const ExperienceCard = ({ item }: { item: typeof experiences[0] }) => {
 
         {/* Right Section: Achievements */}
         <div className="relative z-40 w-full md:w-3/5">
-          <div className="p-8 rounded-[40px] bg-white/[0.02] border border-white/5 shadow-inner">
+          <div
+            className="p-8 rounded-[40px] bg-white/[0.02] border border-white/10 shadow-inner backdrop-blur-sm transition-all duration-500 group-hover:bg-white/[0.05]"
+            style={{
+              boxShadow: `inset 0 2px 4px rgba(255,255,255,0.05), inset 0 -2px 8px rgba(0,0,0,0.3)`,
+            }}
+          >
             <ul className="space-y-5">
               {item.description.map((point, i) => (
                 <motion.li
@@ -226,7 +268,7 @@ const ExperienceCard = ({ item }: { item: typeof experiences[0] }) => {
 
 export function Experience() {
   return (
-    <section id="experience" className="relative py-32 overflow-hidden bg-black">
+    <section id="experience" className="relative py-16 md:py-32 overflow-hidden bg-black">
       {/* Background Decor */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-0 w-[800px] h-[800px] bg-pink-900/5 blur-[150px] rounded-full -translate-x-1/2" />

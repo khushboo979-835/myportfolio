@@ -12,6 +12,11 @@ export function middleware(request: NextRequest) {
     response.headers.set('Referrer-Policy', 'origin-when-cross-origin')
     response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
 
+    // Ensure we don't block methods like POST
+    if (request.nextUrl.pathname.startsWith('/api/')) {
+        return response
+    }
+
     return response
 }
 

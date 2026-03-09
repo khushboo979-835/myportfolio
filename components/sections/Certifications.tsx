@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaAward } from 'react-icons/fa';
+import { FaAward, FaTimes } from 'react-icons/fa';
 import Image from 'next/image';
 
 interface CertificateCardProps {
@@ -288,6 +288,15 @@ export function Certifications() {
               className="relative max-w-5xl w-full max-h-[90vh] flex items-center justify-center cursor-default z-[100]"
               onClick={(e) => e.stopPropagation()}
             >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedCert(null)}
+                className="absolute -top-12 right-0 md:-right-12 text-white/50 hover:text-white transition-colors duration-300 p-2 z-[110] hover:scale-110 active:scale-95"
+                aria-label="Close certificate"
+              >
+                <FaTimes size={28} />
+              </button>
+
               <div className="relative w-full rounded-lg overflow-hidden border border-white/20 shadow-[0_0_50px_rgba(236,72,153,0.3)] bg-white aspect-[1.414/1]">
                 <Image
                   src={selectedCert.image}
