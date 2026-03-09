@@ -190,7 +190,7 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full lg:w-[45%] flex flex-col items-center md:items-start space-y-6 md:space-y-8 text-center md:text-left order-2 lg:order-1"
+            className="w-full lg:w-[45%] flex flex-col items-center md:items-start space-y-6 md:space-y-8 text-center md:text-left order-1"
           >
             {/* Desktop Heading (Hidden on mobile) */}
             <div className="hidden md:flex flex-col items-start space-y-4">
@@ -294,7 +294,7 @@ export function About() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="w-full lg:w-[50%] relative flex justify-center items-center order-1 lg:order-2 min-h-[400px] md:min-h-[500px] lg:min-h-[600px]"
+            className="w-full lg:w-[50%] relative flex justify-center items-center order-2 min-h-[400px] md:min-h-[500px] lg:min-h-[600px]"
           >
             {/* Soft Glow behind image */}
             <div className="absolute w-[200px] h-[200px] md:w-[260px] md:h-[260px] bg-pink-500/30 blur-[80px] rounded-full" />
