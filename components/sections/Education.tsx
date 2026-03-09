@@ -74,10 +74,10 @@ const BookOutlineCard = ({ item, index }: { item: typeof education[0]; index: nu
   };
 
   return (
-    <div className="relative w-full mb-16 md:mb-24 perspective-[2000px] flex md:block flex-col">
+    <div className="relative w-full mb-16 sm:mb-24 perspective-[2000px] flex sm:block flex-col">
 
       {/* TIMELINE NODE */}
-      <div className="absolute left-[20px] md:left-1/2 md:-translate-x-1/2 top-1/2 -translate-y-1/2 flex items-center justify-center z-30">
+      <div className="absolute left-[20px] sm:left-1/2 sm:-translate-x-1/2 top-1/2 -translate-y-1/2 flex items-center justify-center z-30">
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -109,10 +109,10 @@ const BookOutlineCard = ({ item, index }: { item: typeof education[0]; index: nu
 
       {/* BOOK OUTLINE CARD */}
       <div className={cn(
-        "relative z-20 w-full pl-[50px] md:pl-0 md:w-1/2 flex",
+        "relative z-20 w-full pl-[50px] sm:pl-0 sm:w-1/2 flex",
         isLeft
-          ? "md:ml-0 md:mr-auto justify-end md:pr-12 lg:pr-20"
-          : "md:mr-0 md:ml-auto justify-start md:pl-12 lg:pl-20"
+          ? "sm:ml-0 sm:mr-auto justify-end sm:pr-12 lg:pr-20"
+          : "sm:mr-0 sm:ml-auto justify-start sm:pl-12 lg:pl-20"
       )}>
         <motion.div
           initial={{
@@ -138,7 +138,7 @@ const BookOutlineCard = ({ item, index }: { item: typeof education[0]; index: nu
             transformStyle: "preserve-3d",
             transformOrigin: "center center"
           }}
-          className="relative group w-[90%] sm:max-w-[400px] md:max-w-[420px] lg:max-w-[480px] min-h-[380px] flex items-center justify-center p-6 md:p-10 cursor-default mx-auto md:mx-0"
+          className="relative group w-[90%] sm:max-w-[400px] md:max-w-[420px] lg:max-w-[480px] min-h-[380px] flex items-center justify-center p-6 sm:p-10 cursor-default mx-auto sm:mx-0"
         >
 
           {/* THE SPIRAL LADDER LINE (ATTACHED DIRECTLY TO BOOK BOUNDARY) */}
@@ -150,8 +150,8 @@ const BookOutlineCard = ({ item, index }: { item: typeof education[0]; index: nu
             className={cn(
               "absolute top-[50%] -translate-y-[50%] h-[2px] bg-gradient-to-r z-0",
               isLeft
-                ? "left-[100%] origin-left from-fuchsia-500 to-transparent w-[0px] md:w-[3rem] lg:w-[5rem] hidden md:block"
-                : "right-[100%] origin-right from-transparent to-fuchsia-500 w-[20px] md:w-[3rem] lg:w-[5rem]"
+                ? "left-[100%] origin-left from-fuchsia-500 to-transparent w-[0px] sm:w-[3rem] lg:w-[5rem] hidden sm:block"
+                : "right-[100%] origin-right from-transparent to-fuchsia-500 w-[20px] sm:w-[3rem] lg:w-[5rem]"
             )}
             style={{ boxShadow: `0 0 10px ${item.glowColor}` }}
           />
@@ -224,7 +224,7 @@ const BookOutlineCard = ({ item, index }: { item: typeof education[0]; index: nu
           <div className="absolute inset-8 bg-fuchsia-500/0 group-hover:bg-fuchsia-500/5 blur-[50px] transition-colors duration-700 rounded-full translate-y-10 -z-10" />
 
           {/* CONTENT (Inside the dark empty book) */}
-          <div className="relative z-10 w-full transform-gpu transition-transform duration-300 group-hover:translate-z-[30px] pt-8 pb-16 px-4 md:px-8">
+          <div className="relative z-10 w-full transform-gpu transition-transform duration-300 group-hover:translate-z-[30px] pt-8 pb-16 px-4 sm:px-8">
 
             {/* Header Info */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
@@ -280,7 +280,7 @@ const BookOutlineCard = ({ item, index }: { item: typeof education[0]; index: nu
       </div>
 
       {/* spacer to force the book purely on one side of timeline on md+ screens */}
-      <div className="hidden md:block md:w-1/2" />
+      <div className="hidden sm:block sm:w-1/2" />
     </div>
   );
 };
@@ -298,7 +298,7 @@ export function Education() {
     <section
       id="education"
       ref={containerRef}
-      className="relative py-32 overflow-hidden bg-[#030014] perspective-[1000px]"
+      className="relative py-12 sm:py-20 overflow-hidden bg-[#030014] perspective-[1000px]"
     >
       {/* Subtle Background Glows (Dimmed to keep book focus) */}
       <div className="absolute inset-0 pointer-events-none">
@@ -314,7 +314,7 @@ export function Education() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col items-center mb-24 md:mb-32 text-center"
+          className="flex flex-col items-center mb-12 sm:mb-16 text-center"
         >
           <div className="inline-flex items-center justify-center p-2 mb-4 rounded-full bg-amber-500/5 border border-amber-500/20 backdrop-blur-sm shadow-[0_0_15px_rgba(245,158,11,0.2)]">
             <FaGraduationCap className="text-amber-500 text-xl mx-2" />
@@ -336,7 +336,7 @@ export function Education() {
         <div className="relative w-full">
 
           {/* Central Glowing Timeline Line */}
-          <div className="absolute left-[38px] md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-white/5 overflow-hidden">
+          <div className="absolute left-[38px] sm:left-1/2 sm:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-white/5 overflow-hidden">
             <motion.div
               className="absolute top-0 w-full bg-gradient-to-b from-amber-500 via-orange-500 to-amber-500"
               style={{ height: timelineHeight, boxShadow: "0 0 15px rgba(245,158,11,0.8)" }}

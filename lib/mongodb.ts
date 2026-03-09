@@ -40,10 +40,18 @@ async function dbConnect() {
         };
 
         cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
-            console.log('MongoDB Connected successfully');
+            console.log('✅ MongoDB Connected successfully');
             return mongoose;
         }).catch(err => {
-            console.error('MongoDB Connection Error:', err);
+            console.error('❌ MongoDB Connection Error:', err.name, err.message);
+
+            if (err.name === 'MongooseServerSelectionError' || err.message.includes('whitelist') || err.message.includes('connection timed out')) {
+                console.warn('\n⚠️  POTENTIAL IP WHITELIST ISSUE DETECTED');
+                console.warn('Your current IP address might not be allowed to access the MongoDB Atlas cluster.');
+                console.warn('Please add your current IP to the "Network Access" list in your MongoDB Atlas dashboard.');
+                console.warn('See: https://www.mongodb.com/docs/atlas/security-whitelist/\n');
+            }
+
             cached.promise = null;
             throw err;
         });

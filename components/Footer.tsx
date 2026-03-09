@@ -13,7 +13,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative mt-32 pb-8 overflow-hidden bg-[#030014]">
+    <footer className="relative mt-20 pb-8 overflow-hidden bg-[#030014]">
       {/* Wave/Divider Decor */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-pink-500/20 to-transparent" />
 
@@ -30,9 +30,9 @@ export function Footer() {
           className="relative mb-20 p-px rounded-[2rem] overflow-hidden group"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-indigo-500/20 group-hover:via-pink-500/40 opacity-50 transition-all duration-500" />
-          <div className="relative bg-[#0b0c10]/95 backdrop-blur-3xl rounded-[2rem] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 border border-white/5">
-            <div className="max-w-md text-center md:text-left">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+          <div className="relative bg-[#0b0c10]/95 backdrop-blur-3xl rounded-[2rem] p-8 sm:p-12 flex flex-col sm:flex-row items-center justify-between gap-8 border border-white/5">
+            <div className="max-w-md text-center sm:text-left">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
                 Ready to bring your <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400">next idea to life?</span>
               </h2>
@@ -51,9 +51,9 @@ export function Footer() {
         </motion.div>
 
         {/* Middle Section: Meta Info */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16 px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-12 gap-12 mb-16 px-4">
           {/* Logo & About */}
-          <div className="md:col-span-5 space-y-6">
+          <div className="sm:col-span-5 space-y-6">
             <div className="inline-block">
               <h3 className="text-4xl font-bold tracking-tighter text-white">
                 K<span className="text-pink-500">.</span>
@@ -66,7 +66,7 @@ export function Footer() {
           </div>
 
           {/* Connect Zone */}
-          <div className="md:col-span-4 space-y-6">
+          <div className="sm:col-span-4 space-y-6">
             <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-pink-500/80">Connect</h4>
             <div className="flex flex-wrap gap-4">
               {[
@@ -117,7 +117,7 @@ export function Footer() {
           </div>
 
           {/* Quick Nav / Meta */}
-          <div className="md:col-span-3 flex flex-col space-y-6 md:items-end">
+          <div className="sm:col-span-3 flex flex-col space-y-6 sm:items-end">
             <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-pink-500/80">Status</h4>
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
@@ -135,8 +135,8 @@ export function Footer() {
         </div>
 
         {/* Bottom Section: Footer Meta */}
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 opacity-60 hover:opacity-100 transition-opacity duration-500">
-          <div className="flex flex-col md:flex-row items-center gap-4 lg:gap-8">
+        <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-6 opacity-60 hover:opacity-100 transition-opacity duration-500">
+          <div className="flex flex-col sm:flex-row items-center gap-4 lg:gap-8">
             <div className="flex items-center gap-4 text-[11px] font-bold uppercase tracking-widest text-slate-500">
               <span>© {currentYear} Khushboo Kumari</span>
               <span className="w-1 h-1 bg-slate-700 rounded-full" />

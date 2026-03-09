@@ -34,19 +34,19 @@ export function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="py-16 md:py-32 relative overflow-hidden bg-[#030014]">
+    <section id="projects" className="py-12 sm:py-20 relative overflow-hidden bg-[#030014]">
       {/* Background Decor */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 -left-1/4 w-[700px] h-[700px] bg-purple-900/20 blur-[150px] rounded-full mix-blend-screen animate-pulse" />
         <div className="absolute bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-indigo-900/20 blur-[150px] rounded-full mix-blend-screen animate-pulse" style={{ animationDelay: '3s' }} />
       </div>
 
-      <div className="container-custom relative z-10 px-4 md:px-6">
+      <div className="container-custom relative z-10 px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col items-center mb-24 text-center"
+          className="flex flex-col items-center mb-16 sm:mb-20 text-center"
         >
           <h2 className="text-4xl md:text-6xl font-black mb-6">
             <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent italic tracking-tighter">
@@ -57,7 +57,7 @@ export function Projects() {
         </motion.div>
 
         {/* Staggered Grid: Middle Item Slightly UP, others standard */}
-        <div className="grid gap-x-12 gap-y-24 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto items-start">
+        <div className="grid gap-x-12 gap-y-24 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto items-start">
           {loading ? (
             [...Array(6)].map((_, i) => (
               <div key={i} className="h-[580px] rounded-[2.5rem] bg-white/5 animate-pulse border border-white/10" />

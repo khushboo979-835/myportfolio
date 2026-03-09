@@ -241,7 +241,7 @@ export function Skills() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
@@ -251,19 +251,19 @@ export function Skills() {
     <section
       id="skills"
       onClick={() => setExpandedId(null)}
-      className="relative bg-[#030014] py-20 md:py-32 md:min-h-screen overflow-hidden flex flex-col items-center justify-center cursor-default"
+      className="relative bg-[#030014] py-12 sm:py-20 sm:min-h-screen overflow-hidden flex flex-col items-center justify-center cursor-default"
     >
       <BackgroundGlow />
 
       <div className="container-custom relative z-10 w-full px-6 flex flex-col items-center">
-        <div className="mb-10 md:mb-16 text-center">
+        <div className="mb-12 sm:mb-16 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="relative"
           >
-            <h2 className="text-4xl md:text-6xl font-black text-white leading-[0.85] tracking-tighter uppercase italic drop-shadow-2xl">
+            <h2 className="text-4xl sm:text-6xl font-black text-white leading-[0.85] tracking-tighter uppercase italic drop-shadow-2xl">
               Skills <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-rose-500 not-italic">Arsenal</span>
             </h2>
             <div className="mt-8 flex items-center justify-center gap-6">
@@ -275,7 +275,7 @@ export function Skills() {
                 transition={{ opacity: { duration: 3, repeat: Infinity, ease: "easeInOut" }, duration: 1 }}
                 className="h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"
               />
-              <span className="text-white/60 font-black text-[10px] md:text-[11px] tracking-[0.2em] uppercase">
+              <span className="text-white/60 font-black text-[10px] sm:text-[11px] tracking-[0.2em] uppercase">
                 [Professional Stack Overview]
               </span>
               <motion.div
@@ -315,7 +315,7 @@ export function Skills() {
         </motion.div>
 
         {/* INTERACTIVE TRIGGER */}
-        <div className="mt-8 md:mt-12 relative z-[200]">
+        <div className="mt-8 sm:mt-12 relative z-[200]">
           <motion.button
             onClick={(e) => {
               e.stopPropagation();
@@ -329,7 +329,7 @@ export function Skills() {
             whileTap={{ scale: 0.95 }}
             className="group relative flex flex-col items-center gap-6 outline-none"
           >
-            <div className="px-10 py-4 rounded-full bg-white/5 border border-white/10 text-white/50 group-hover:text-white group-hover:bg-white/10 transition-all duration-500 font-mono text-xs md:text-sm tracking-[0.3em] font-black uppercase backdrop-blur-3xl shadow-2xl">
+            <div className="px-10 py-4 rounded-full bg-white/5 border border-white/10 text-white/50 group-hover:text-white group-hover:bg-white/10 transition-all duration-500 font-mono text-xs sm:text-sm tracking-[0.3em] font-black uppercase backdrop-blur-3xl shadow-2xl">
               {isFanned ? 'Terminate Arsenal' : 'Initiate Skill Stack'}
             </div>
 

@@ -172,7 +172,7 @@ const ExperienceCard = ({ item }: { item: typeof experiences[0] }) => {
       <SparkleParticles isHovered={isHovered} />
 
       <div
-        className="relative flex flex-col md:flex-row gap-8 p-10 md:p-14 bg-white/[0.03] backdrop-blur-md overflow-hidden shadow-2xl transition-all duration-500 group group-hover:scale-[1.02] ease-[cubic-bezier(0.34,1.56,0.64,1)] active:scale-95"
+        className="relative flex flex-col sm:flex-row gap-8 p-10 md:p-14 bg-white/[0.03] backdrop-blur-md overflow-hidden shadow-2xl transition-all duration-500 group group-hover:scale-[1.02] ease-[cubic-bezier(0.34,1.56,0.64,1)] active:scale-95"
         style={{
           borderRadius: '60px 0 60px 0',
           boxShadow: `inset 0 4px 8px rgba(255,255,255,0.1), inset 0 -4px 12px rgba(0,0,0,0.4), 0 20px 40px rgba(0,0,0,0.5)`,
@@ -197,7 +197,7 @@ const ExperienceCard = ({ item }: { item: typeof experiences[0] }) => {
         />
 
         {/* Left Section: Branding & Role */}
-        <div className="relative z-40 w-full md:w-2/5 space-y-6">
+        <div className="relative z-40 w-full sm:w-2/5 space-y-6">
           <motion.div
             animate={isHovered ? { x: 10 } : { x: 0 }}
             className="inline-block px-4 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/30 text-pink-500 text-[10px] font-black uppercase tracking-[0.3em]"
@@ -228,7 +228,7 @@ const ExperienceCard = ({ item }: { item: typeof experiences[0] }) => {
         </div>
 
         {/* Right Section: Achievements */}
-        <div className="relative z-40 w-full md:w-3/5">
+        <div className="relative z-40 w-full sm:w-3/5">
           <div
             className="p-8 rounded-[40px] bg-white/[0.02] border border-white/10 shadow-inner backdrop-blur-sm transition-all duration-500 group-hover:bg-white/[0.05]"
             style={{
@@ -268,7 +268,7 @@ const ExperienceCard = ({ item }: { item: typeof experiences[0] }) => {
 
 export function Experience() {
   return (
-    <section id="experience" className="relative py-16 md:py-32 overflow-hidden bg-black">
+    <section id="experience" className="relative py-12 sm:py-20 overflow-hidden bg-black">
       {/* Background Decor */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-0 w-[800px] h-[800px] bg-pink-900/5 blur-[150px] rounded-full -translate-x-1/2" />
@@ -279,14 +279,14 @@ export function Experience() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col items-center mb-24"
+          className="flex flex-col items-center mb-12 sm:mb-10"
         >
           <div className="flex items-center gap-4 mb-4">
             <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-pink-500" />
             <span className="text-[10px] font-black uppercase tracking-[0.5em] text-pink-500">Milestones</span>
             <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-pink-500" />
           </div>
-          <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter text-center">
+          <h2 className="text-4xl sm:text-6xl font-black text-white tracking-tighter text-center">
             Professional <span className="bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent italic underline decoration-pink-500/30 underline-offset-8">Experience</span>
           </h2>
         </motion.div>

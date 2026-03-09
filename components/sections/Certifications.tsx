@@ -218,7 +218,7 @@ export function Certifications() {
   };
 
   return (
-    <section id="certifications" className="py-24 bg-[#030014] overflow-hidden relative min-h-screen">
+    <section id="certifications" className="py-12 sm:py-20 bg-[#030014] overflow-hidden relative min-h-screen">
       {/* Background Decor */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-pink-600/5 blur-[120px] rounded-full mix-blend-screen" />
@@ -232,13 +232,13 @@ export function Certifications() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col items-center mb-16 text-center"
+          className="flex flex-col items-center mb-12 text-center"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/20 mb-4 shadow-[0_0_15px_rgba(236,72,153,0.15)]">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/30 mb-4 shadow-[0_0_15px_rgba(236,72,153,0.15)]">
             <FaAward className="text-pink-400" />
             <span className="text-xs font-bold text-pink-300 tracking-wider uppercase">Achievements</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent pb-2 drop-shadow-sm">
+          <h2 className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent pb-2 drop-shadow-sm">
             My Certifications
           </h2>
           <motion.div
@@ -251,7 +251,7 @@ export function Certifications() {
         </motion.div>
 
         {/* Certificate Grid */}
-        <div className="grid gap-12 md:gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto mt-10">
+        <div className="grid gap-12 sm:gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto mt-10">
           {loading ? (
             [...Array(6)].map((_, i) => (
               <div key={i} className="aspect-[1.414/1] rounded-[24px] bg-white/5 animate-pulse border border-white/10" />

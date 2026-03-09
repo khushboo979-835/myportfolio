@@ -51,7 +51,7 @@ export function Navbar() {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={cn(
         "fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-500",
-        scrolled ? "py-2 md:py-4" : "py-4 md:py-8"
+        scrolled ? "py-2 sm:py-4" : "py-4 sm:py-8"
       )}
     >
       {/* Glow Effect Background Layer */}
@@ -59,11 +59,11 @@ export function Navbar() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-24 bg-purple-600/10 blur-[100px] pointer-events-none delay-700" />
 
       <nav className={cn(
-        "relative flex items-center h-14 md:h-16 px-4 md:px-10 rounded-full transition-all duration-500 ease-in-out",
+        "relative flex items-center h-14 sm:h-16 px-4 sm:px-10 rounded-full transition-all duration-500 ease-in-out",
         "backdrop-blur-xl border border-white/10 shadow-2xl",
         scrolled
-          ? "w-[94%] md:w-[90%] max-w-5xl bg-black/40 border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
-          : "w-[96%] md:w-[94%] max-w-7xl bg-white/5 border-white/10"
+          ? "w-[94%] sm:w-[90%] max-w-5xl bg-black/40 border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+          : "w-[96%] sm:w-[94%] max-w-7xl bg-white/5 border-white/10"
       )}>
         {/* Branding (Left) */}
         <div className="flex-1 flex items-center justify-start">
@@ -75,7 +75,7 @@ export function Navbar() {
             }}
             className="group relative flex items-center gap-2"
           >
-            <span className="text-xl md:text-2xl font-bold tracking-tight text-white transition-all duration-300 group-hover:text-pink-400">
+            <span className="text-xl sm:text-2xl font-bold tracking-tight text-white transition-all duration-300 group-hover:text-pink-400">
               My <span className="text-pink-500">Portfolio</span>
             </span>
             <motion.div
@@ -88,7 +88,7 @@ export function Navbar() {
         </div>
 
         {/* Navigation (Center) */}
-        <div className="hidden md:flex items-center justify-center flex-[2]">
+        <div className="hidden sm:flex items-center justify-center flex-[2]">
           <div className="flex items-center gap-2 px-2 py-1 bg-white/5 rounded-full border border-white/5">
             {navItems.map((item) => (
               <Link
@@ -133,7 +133,7 @@ export function Navbar() {
         </div>
 
         {/* Actions (Right) */}
-        <div className="flex-1 flex items-center justify-end gap-2 md:gap-4">
+        <div className="flex-1 flex items-center justify-end gap-2 sm:gap-4">
           <ThemeToggle />
 
           <motion.button
@@ -149,7 +149,7 @@ export function Navbar() {
 
           {/* Mobile Menu Trigger */}
           <button
-            className="md:hidden relative z-50 p-2 text-white"
+            className="sm:hidden relative z-50 p-2 text-white"
             onClick={() => setIsOpen(!isOpen)}
           >
             <div className="w-6 h-5 flex flex-col justify-between items-end">
@@ -177,7 +177,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="absolute top-20 left-0 right-0 mx-4 p-6 rounded-3xl bg-black/80 backdrop-blur-2xl border border-white/10 shadow-2xl md:hidden flex flex-col gap-4"
+              className="absolute top-20 left-0 right-0 mx-4 p-6 rounded-3xl bg-black/80 backdrop-blur-2xl border border-white/10 shadow-2xl sm:hidden flex flex-col gap-4"
             >
               {navItems.map((item, idx) => (
                 <motion.button

@@ -164,7 +164,7 @@ export function About() {
 
       <div className="container-custom relative z-10 w-full px-6 md:px-12">
         {/* Mobile Header (Visible only on mobile) */}
-        <div className="md:hidden text-center mb-8">
+        <div className="sm:hidden text-center mb-8">
           <div className="flex flex-col items-center space-y-4">
             <h2 className="text-4xl md:text-5xl font-black bg-gradient-to-r from-white via-pink-400 to-pink-600 bg-clip-text text-transparent">
               About Me
@@ -182,7 +182,7 @@ export function About() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-8 items-center justify-between">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row gap-12 md:gap-8 items-center justify-between">
 
           {/* LEFT SIDE: Text Content */}
           <motion.div
@@ -190,10 +190,10 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full lg:w-[45%] flex flex-col items-center md:items-start space-y-6 md:space-y-8 text-center md:text-left order-1"
+            className="w-full sm:w-[45%] flex flex-col items-center sm:items-start space-y-6 md:space-y-8 text-center sm:text-left order-1"
           >
             {/* Desktop Heading (Hidden on mobile) */}
-            <div className="hidden md:flex flex-col items-start space-y-4">
+            <div className="hidden sm:flex flex-col items-start space-y-4">
               <h2 className="text-4xl md:text-6xl font-black bg-gradient-to-r from-white via-pink-400 to-pink-600 bg-clip-text text-transparent w-fit">
                 About Me
               </h2>
@@ -248,7 +248,7 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-wrap gap-3 justify-center md:justify-start max-w-xl"
+              className="flex flex-wrap gap-3 justify-center sm:justify-start max-w-xl"
             >
               {skillTags.map((skill, i) => (
                 <motion.span
@@ -294,7 +294,7 @@ export function About() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="w-full lg:w-[50%] relative flex justify-center items-center order-2 min-h-[400px] md:min-h-[500px] lg:min-h-[600px]"
+            className="w-full sm:w-[50%] relative flex justify-center items-center order-2 min-h-[400px] md:min-h-[500px] lg:min-h-[600px]"
           >
             {/* Soft Glow behind image */}
             <div className="absolute w-[200px] h-[200px] md:w-[260px] md:h-[260px] bg-pink-500/30 blur-[80px] rounded-full" />

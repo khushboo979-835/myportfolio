@@ -212,13 +212,13 @@ export function Hero() {
       </div>
 
       <div className="container-custom relative z-10 mx-auto">
-        <div className="flex flex-col lg:flex-row items-center gap-12 md:gap-16 w-full">
+        <div className="flex flex-col sm:flex-row items-center gap-12 md:gap-16 w-full">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full lg:w-1/2 flex flex-col space-y-6 lg:space-y-8 lg:pr-4"
+            className="w-full sm:w-1/2 flex flex-col space-y-6 md:space-y-8 sm:pr-4"
           >
             <motion.h1
               initial={{ opacity: 0, x: -100 }}
@@ -228,7 +228,7 @@ export function Hero() {
                 ease: [0.16, 1, 0.3, 1],
                 delay: 0.2
               }}
-              className="text-4xl font-black leading-[1.1] text-white md:text-6xl lg:text-7xl xl:text-8xl tracking-tighter text-center lg:text-left"
+              className="text-4xl font-black leading-[1.1] text-white sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tighter text-center sm:text-left"
             >
               Hi, I&apos;m <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-pink-200 to-pink-500 relative inline-block">
@@ -240,7 +240,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="flex justify-center lg:justify-start"
+              className="flex justify-center sm:justify-start"
             >
               <LoopingTypewriter />
             </motion.div>
@@ -249,7 +249,7 @@ export function Hero() {
               initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6 }}
-              className="text-base md:text-lg lg:text-xl text-slate-200 lg:max-w-lg leading-relaxed font-medium text-center lg:text-left"
+              className="text-base md:text-lg lg:text-xl text-slate-200 sm:max-w-lg leading-relaxed font-medium text-center sm:text-left"
             >
               I build <span className="text-pink-400 font-semibold">responsive web applications</span> with <span className="text-white font-bold underline decoration-pink-500/30">React, Next.js and MERN stack</span>. Currently leading team projects and working as a <span className="text-pink-400 font-semibold">Frontend Developer Intern</span> at <span className="text-pink-500 font-bold hover:scale-105 transition-transform inline-block">Mecenza</span>.
             </motion.p>
@@ -258,7 +258,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="flex flex-wrap justify-center lg:justify-start gap-4 md:gap-6"
+              className="flex flex-wrap justify-center sm:justify-start gap-4 md:gap-6"
             >
               <SpotlightButton
                 onClick={() => scrollToSection('projects')}
@@ -281,7 +281,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
-              className="flex items-center justify-center lg:justify-start gap-4 md:gap-6"
+              className="flex items-center justify-center sm:justify-start gap-4 md:gap-6"
             >
               {socialLinks.map((social, i) => (
                 <Link
@@ -306,7 +306,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="relative w-full lg:w-1/2 flex justify-center items-center mt-8 md:mt-12 lg:mt-0"
+            className="relative w-full sm:w-1/2 flex justify-center items-center mt-8 sm:mt-0"
           >
             <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-[320px] md:h-[320px] lg:w-[420px] lg:h-[420px] flex items-center justify-center">
 
