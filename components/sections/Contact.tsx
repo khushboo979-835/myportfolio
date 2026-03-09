@@ -34,7 +34,7 @@ export function Contact() {
     setFieldErrors({});
 
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('/api/contact/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,7 +50,11 @@ export function Contact() {
         // Don't auto-reset success to idle too quickly if it was a success
       } else {
         setStatus('error');
-        if (data.errors) {
+        if (res.status === 405) {
+          setErrorMessage('Method not allowed. This is likely a server configuration issue. Please reach out via WhatsApp/Email.');
+        } else if (res.status >= 500) {
+          setErrorMessage('Server error (Database connection failed). Please try again later or use alternative contact methods.');
+        } else if (data.errors) {
           setFieldErrors(data.errors);
           setErrorMessage('Please fix the validation errors below.');
         } else if (data.isConfigError) {

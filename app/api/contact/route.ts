@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongodb';
 import Message from '@/models/Message';
@@ -123,6 +124,11 @@ export async function POST(req: NextRequest) {
         }
 
         // Check for missing DB connection
+        if (!process.env.MONGODB_URI) {
+            console.error('CRITICAL: MONGODB_URI is not defined in environment variables.');
+            return NextResponse.json({ success: false, error: 'Database configuration missing on server.' }, { status: 500 });
+        }
+
         if (error.message?.includes('MONGODB_URI') || error.name === 'MongooseError' || error.name === 'MongoServerError') {
             return NextResponse.json({ success: false, error: 'Database connection failed. Please contact me directly while I fix this!' }, { status: 500 });
         }
